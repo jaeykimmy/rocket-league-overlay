@@ -1,7 +1,4 @@
-const express = require("express");
-const app = express();
-const { products } = require("@rocketleagueapi/items");
-const data = [
+export const items = [
   {
     name: "fennec",
     price: 1600,
@@ -52,11 +49,49 @@ const data = [
     price: 150,
     color: "black",
   },
+  {
+    name: "fissure",
+    price: 700,
+    color: "titanium white",
+  },
+  {
+    name: "haunted hoss",
+    price: 100,
+    color: "titanium white",
+  },
+  {
+    name: "octane: RLCS",
+    price: 350,
+    color: "black",
+  },
+  {
+    name: "octane: abtruse",
+    price: 100,
+    color: "grey",
+  },
+  {
+    name: "devil horns",
+    price: 100,
+    color: "black",
+  },
+  {
+    name: "octane",
+    price: 700,
+    color: "sky blue",
+  },
+  {
+    name: "octane ",
+    price: 400,
+    color: "pink",
+  },
+  {
+    name: "octane ",
+    price: 300,
+    color: "orange",
+  },
+  {
+    name: "octane",
+    price: 300,
+    color: "saffron",
+  },
 ];
-app.get("/", (req, res) => {
-  res.send(data);
-});
-
-app.listen(3000, () => {
-  console.log("Express server listening on port 3000");
-});
