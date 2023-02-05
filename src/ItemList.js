@@ -11,6 +11,7 @@ import {
   Button,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { hardcodeddata } from "./hardcodeddata";
 const useStyles = makeStyles({
   tableRow: {
     height: "20px",
@@ -54,26 +55,41 @@ export default function ItemList({ items }) {
             <TableCell>Name</TableCell>
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Color</TableCell>
-            <TableCell align="right">Sold</TableCell>
+            {sortedData.length ? (
+              <TableCell align="right">Sold</TableCell>
+            ) : null}
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortedData.map((item, index) => (
-            <TableRow key={index} className={classes.tableRow}>
-              <TableCell component="th" scope="row">
-                {capitalizeEachWord(item.name)}
-              </TableCell>
-              <TableCell align="right">{item.price}</TableCell>
-              <TableCell align="right">
-                {capitalizeEachWord(item.color)}
-              </TableCell>
-              <TableCell align="right">
-                <Button onClick={() => handleClick(item.id, !item.sold)}>
-                  {item.sold ? "Not Sold" : "Sold"}
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
+          {sortedData.length
+            ? sortedData.map((item, index) => (
+                <TableRow key={index} className={classes.tableRow}>
+                  <TableCell component="th" scope="row">
+                    {capitalizeEachWord(item.name)}
+                  </TableCell>
+                  <TableCell align="right">{item.price}</TableCell>
+                  <TableCell align="right">
+                    {capitalizeEachWord(item.color)}
+                  </TableCell>
+                  <TableCell align="right">
+                    <Button onClick={() => handleClick(item.id, !item.sold)}>
+                      {item.sold ? "Not Sold" : "Sold"}
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))
+            : hardcodeddata.map((item, index) => (
+                <TableRow key={index} className={classes.tableRow}>
+                  <TableCell component="th" scope="row">
+                    {capitalizeEachWord(item.name)}
+                  </TableCell>
+                  <TableCell align="right">{item.price}</TableCell>
+                  <TableCell align="right">
+                    {capitalizeEachWord(item.color)}
+                  </TableCell>
+                  l
+                </TableRow>
+              ))}
         </TableBody>
       </Table>
     </TableContainer>
